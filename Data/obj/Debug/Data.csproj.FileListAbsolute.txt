@@ -7,3 +7,9 @@ D:\Test\Data\Data\obj\Debug\Data.pdb
 F:\Code\Data\Data\bin\Debug\Data.exe.config
 F:\Code\Data\Data\obj\Debug\Data.exe
 F:\Code\Data\Data\obj\Debug\Data.pdb
+D:\Test\DataStructure\Data\bin\Debug\Data.exe.config
+D:\Test\DataStructure\Data\obj\Debug\Data.exe
+D:\Test\DataStructure\Data\obj\Debug\Data.pdb
+D:\Test\DataStructure\Data\bin\Debug\Data.exe
+D:\Test\DataStructure\Data\bin\Debug\Data.pdb
+D:\Test\DataStructure\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

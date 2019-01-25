@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,18 @@ namespace Data
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int> { 0,1,8,10,11,88,99,100,111,999};
+            List<int> list = new List<int> { 8,10,99,999};// 01,04
+            BitMap b = new BitMap(10000);
+            byte[] bytes = new byte[10000];
+            BitArray myBA1 = new BitArray(bytes);
+            myBA1.Set(1, true);
+            var aaa = myBA1.Get(1);
             foreach (var item in list)
             {
-                BitMap b = new BitMap(item);
+             
                 b.set(item);
                 var a = b.get(item);
-                var c = b.get(9);
+                Console.WriteLine($"{item}:{a}");
             }
          
         }

@@ -8,6 +8,7 @@ namespace Data
 {
     public class BitMap
     {
+      
         private byte[] bytes;
         private int nbits;
         public BitMap(int nbits)
@@ -21,7 +22,7 @@ namespace Data
             if (k > nbits) return;
             int byteIndex = k / 8;
             int bitIndex = k % 8;
-            bytes[byteIndex] |=(byte) (1<<bitIndex);
+            bytes[byteIndex] |=(byte) (1<<bitIndex);//x|=y  等价于 x=x|y
         }
         public bool get(int k)
         {
