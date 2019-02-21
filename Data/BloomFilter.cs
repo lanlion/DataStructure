@@ -21,20 +21,43 @@ namespace Data
         public Int64 BitIndexCount { get; }
         public BloomFilter( int DataArrayLeng, int bitIndexCount)
         {
-            var bloomLength = DataArrayLeng * 10;
+            var bloomLength = DataArrayLeng * 10;//布隆过滤器的大小是数据的10倍
             _BloomArray = new BitArray(bloomLength);
             this.BloomArryLength = bloomLength;
             this.DataArrayLeng = DataArrayLeng;
             this.BitIndexCount = bitIndexCount;
         }
-        public void Add()
+        public void Add(string str)
         {
+            var hashCode = GetHashCode(str);
+            Random r = new Random(hashCode);
+            for (int i = 0; i < BitIndexCount; i++)
+            {
+                var c = r.Next((int)(this.BloomArryLength-1));
+                _BloomArray[c] = true;
+            }
+        }
+        public bool isExist(string str)
+        {
+            var hashCode = GetHashCode(str);
+            Random r = new Random(hashCode);
+            for (int i = 0; i < BitIndexCount; i++)
+            {
+                var c = r.Next((int)(this.BloomArryLength-1));
+                if (!_BloomArray[c]) return false;
+            }
+            return true;
 
         }
-
         public int GetHashCode(object value)
         {
             return value.GetHashCode();
+        }
+        public double getFalsePositiveProbability()
+        {
+            // (1 - e^(-k * n / m)) ^ k
+            return Math.Pow((1 - Math.Exp(-BitIndexCount * (double)DataArrayLeng / BloomArryLength)),
+                    BitIndexCount);
         }
     }
 }
