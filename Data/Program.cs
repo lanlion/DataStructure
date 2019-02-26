@@ -13,6 +13,20 @@ namespace Data
         static void Main(string[] args)
         {
 
+            Compute cc = new Compute();
+         var compute=   cc.GetResult("34+13-9+88-12-33-55+99+66+78");
+            //34 +117+ 88- 4-198-55+99 +330+78
+
+            ArrayStack arraystack = new ArrayStack(10);
+
+            for (int i = 0; i < 10; i++)
+            {
+                arraystack.push(i.ToString());
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(arraystack.pop());
+            }
             string source = "哈夫曼曼曼曼曼";
 
             Huffman hf = new Huffman();

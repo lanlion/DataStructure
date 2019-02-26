@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayStack.cs" />
     <Compile Include="BitMap.cs" />
     <Compile Include="BloomFilter.cs" />
+    <Compile Include="Compute.cs" />
     <Compile Include="Huffman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
