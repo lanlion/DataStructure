@@ -13,7 +13,7 @@ namespace Data
         static void Main(string[] args)
         {
 
-            int[] arr =new int[]{ 2,6,5,8,7,4,3,11,10};
+            int[] arr =new int[]{9, 2,6,5,8,7,4,3,11,10};
             Sort.Quick_Sort(arr);
             Compute cc = new Compute();
          var compute=   cc.GetResult("34+13-9+88-12-33-55+99+66+78");
