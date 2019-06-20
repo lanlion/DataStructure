@@ -12,6 +12,7 @@ namespace Data
     {
         static void Main(string[] args)
         {
+           
             #region 线程假死测试
             ReportEntrance.GetInstance();
           
