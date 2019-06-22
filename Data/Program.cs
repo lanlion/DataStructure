@@ -12,61 +12,71 @@ namespace Data
     {
         static void Main(string[] args)
         {
+           
+            #region 线程假死测试
+            ReportEntrance.GetInstance();
+          
+            #endregion
 
-            int[] arr =new int[]{9, 2,6,5,8,7,4,3,11,10};
-            Sort.Quick_Sort(arr);
-            Compute cc = new Compute();
-         var compute=   cc.GetResult("34+13-9+88-12-33-55+99+66+78");
-            //34 +117+ 88- 4-198-55+99 +330+78
+            #region test
 
-            ArrayStack arraystack = new ArrayStack(10);
 
-            for (int i = 0; i < 10; i++)
-            {
-                arraystack.push(i.ToString());
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(arraystack.pop());
-            }
-            string source = "哈夫曼曼曼曼曼";
+            //   int[] arr =new int[]{9, 2,6,5,8,7,4,3,11,10};
+            //   Sort.Quick_Sort(arr);
+            //   Compute cc = new Compute();
+            //var compute=   cc.GetResult("34+13-9+88-12-33-55+99+66+78");
+            //   //34 +117+ 88- 4-198-55+99 +330+78
 
-            Huffman hf = new Huffman();
-            Dictionary<char, string> key = null;
-            var hfCode = hf.StringToHuffmanCode(out key, source);
+            //   ArrayStack arraystack = new ArrayStack(10);
 
-            Console.WriteLine("--------------------编码与解析");
-            Console.WriteLine("编码: " + hfCode);
+            //   for (int i = 0; i < 10; i++)
+            //   {
+            //       arraystack.push(i.ToString());
+            //   }
+            //   for (int i = 0; i < 10; i++)
+            //   {
+            //       Console.WriteLine(arraystack.pop());
+            //   }
+            //   string source = "哈夫曼曼曼曼曼";
 
-            var text = hf.ToText(hfCode, key);
-            Console.WriteLine("解析: " + text);
+            //   Huffman hf = new Huffman();
+            //   Dictionary<char, string> key = null;
+            //   var hfCode = hf.StringToHuffmanCode(out key, source);
 
-            Console.ReadLine();
+            //   Console.WriteLine("--------------------编码与解析");
+            //   Console.WriteLine("编码: " + hfCode);
 
-            Random r = new Random(4);
-            Random rr = new Random(4);
-            var a = r.Next();
-            var aa = rr.Next();
+            //   var text = hf.ToText(hfCode, key);
+            //   Console.WriteLine("解析: " + text);
 
-            BloomFilter bloom = new BloomFilter(50000, 7);
-            for (int i = 0; i < bloom.DataArrayLeng; i++)
-            {
-                bloom.Add(i.ToString());
-            }
-            while (true)
-            {
-                var c = Console.ReadLine();
-                if (c == "e")
-                {
-                    break;
+            //   Console.ReadLine();
 
-                }
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                var temp = bloom.isExist(c);
-                sw.Stop();
-                Console.WriteLine($"查找:{c}\n结果:{temp}\n总耗时:{sw.ElapsedTicks}\n错误概率:{bloom.getFalsePositiveProbability()}");
-            }
+            //   Random r = new Random(4);
+            //   Random rr = new Random(4);
+            //   var a = r.Next();
+            //   var aa = rr.Next();
+
+            //   BloomFilter bloom = new BloomFilter(50000, 7);
+            //   for (int i = 0; i < bloom.DataArrayLeng; i++)
+            //   {
+            //       bloom.Add(i.ToString());
+            //   }
+            //   while (true)
+            //   {
+            //       var c = Console.ReadLine();
+            //       if (c == "e")
+            //       {
+            //           break;
+
+            //       }
+            //       Stopwatch sw = new Stopwatch();
+            //       sw.Start();
+            //       var temp = bloom.isExist(c);
+            //       sw.Stop();
+            //       Console.WriteLine($"查找:{c}\n结果:{temp}\n总耗时:{sw.ElapsedTicks}\n错误概率:{bloom.getFalsePositiveProbability()}");
+            //   }
+
+            #endregion
         }
     }
 }

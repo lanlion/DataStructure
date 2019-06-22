@@ -10,6 +10,7 @@ namespace Data
     {
         public static void Quick_Sort(int[] arr)
         {
+            Console.WriteLine($"arr{string.Join(",", arr)}");
             Qsort(arr, 0, arr.Length - 1);
         }
 
@@ -17,10 +18,15 @@ namespace Data
         {
             if (low >= high) return;
             var q = partition(arr, low, high);
+            Console.WriteLine($"low:{low}");
+            Console.WriteLine($"high:{high}");
+            Console.WriteLine($"partition:{q}");
+            Console.WriteLine($"arr{string.Join(",",arr)}");
             Qsort(arr, low, q - 1);
             Qsort(arr, q + 1, high);
         }
         //9, 2,6,5,8,7,4,3,11,10
+        //3, 2,6,5,8,7,4,9,11,10
         private static int partition(int[] arr, int low, int high)
         {
             // arr[0] = arr[low];
