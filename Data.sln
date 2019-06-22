@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanWeb", "LanWeb\LanWeb.csproj", "{BF4C4A51-C719-4B2B-B52C-E7A996BB2FD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm", "WinForm\WinForm.csproj", "{4E744EF7-EDE6-4B55-AC49-1A38B946F2FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiDuApi", "BaiDuApi\BaiDuApi.csproj", "{7E00E121-7B5D-4D75-AB24-EB7211260506}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{BF4C4A51-C719-4B2B-B52C-E7A996BB2FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF4C4A51-C719-4B2B-B52C-E7A996BB2FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF4C4A51-C719-4B2B-B52C-E7A996BB2FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E744EF7-EDE6-4B55-AC49-1A38B946F2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E744EF7-EDE6-4B55-AC49-1A38B946F2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E744EF7-EDE6-4B55-AC49-1A38B946F2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E744EF7-EDE6-4B55-AC49-1A38B946F2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E00E121-7B5D-4D75-AB24-EB7211260506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E00E121-7B5D-4D75-AB24-EB7211260506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E00E121-7B5D-4D75-AB24-EB7211260506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E00E121-7B5D-4D75-AB24-EB7211260506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
