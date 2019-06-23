@@ -135,7 +135,7 @@ lbl_HoleDiameter,txt_HoleDiameter
             else
             {
                 MessageBox.Show("请输入数字！");
-                txt_Temperature.Text = back.ToString();
+                temptxt.Text = back.ToString();
             }
             LoadLevel();
 
