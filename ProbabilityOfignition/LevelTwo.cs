@@ -13,12 +13,14 @@ namespace ProbabilityOfignition
         private double _poii;
         private double _podiIndoor;
         private double _podiOutdoor;
+
+      
         public override double POSI
         {
             get
             {
                 _posi = 0.003 * Math.Pow(Chemical.Pressure, 1 / 3)*Math.Pow(Chemical.MIE_Adj,-0.6);
-                return _posi;
+                return Math.Round(_posi,3);
             }
 
             set
@@ -45,7 +47,7 @@ namespace ProbabilityOfignition
                 {
                     _poni = 1 - 5000 * Math.Exp(-9.5 * temp);
                 }
-                return _poni;
+                return Math.Round(_poni,3);
               
             }
 
@@ -60,7 +62,7 @@ namespace ProbabilityOfignition
             get
             {
                 _poii = PONI + (1 - PONI) * POSI;
-                return _poii;
+                return Math.Round(_poii,3);
             }
 
             set
@@ -69,12 +71,15 @@ namespace ProbabilityOfignition
             }
         }
 
+     
+      
+        //sd*mag*mat*mt*in(out)
         public override double PODIOutdoor
         {
             get
             {
-                _podiOutdoor = 0.15 - 0.25 * Math.Log(Chemical.MIE);
-                return _podiOutdoor;
+                _podiOutdoor = Chemical.SD * Chemical.MAG * Chemical.MAT * Chemical.MT * Chemical.OutdoorLeaks;
+                return Math.Round(_podiOutdoor,3);
             }
 
             set
@@ -86,8 +91,8 @@ namespace ProbabilityOfignition
         {
             get
             {
-                _podiIndoor = 1.5 * PODIOutdoor;
-                return _podiIndoor;
+                _podiIndoor = Chemical.SD * Chemical.MAG * Chemical.MAT * Chemical.MT * Chemical.IndoordoorLeaks;
+                return Math.Round(_podiIndoor,3);
             }
 
             set

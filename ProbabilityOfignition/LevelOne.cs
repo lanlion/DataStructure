@@ -44,7 +44,7 @@ namespace ProbabilityOfignition
                 {
                     _poni=  1 - 5000 * Math.Exp(-9.5 * temp);
                 }
-                return _poni;
+                return Math.Round( _poni,3);
             }
 
             set
@@ -58,7 +58,7 @@ namespace ProbabilityOfignition
             get
             {
                 _poii = 0.05 + (1 - 0.05) * _poni;
-                return _poii;
+                return Math.Round(_poii,3);
             }
 
             set
@@ -71,8 +71,8 @@ namespace ProbabilityOfignition
         {
             get
             {
-                _podiOutdoor = 0.15 - 0.25 * Math.Log(Chemical.MIE);
-                return _podiOutdoor;
+                _podiOutdoor = 0.15 - 0.25 * Math.Log(Chemical.MIE,10);
+                return Math.Round(_podiOutdoor,3);
             }
 
             set
@@ -85,7 +85,7 @@ namespace ProbabilityOfignition
             get
             {
                 _podiIndoor = 1.5 * PODIOutdoor;
-                return _podiIndoor;
+                return Math.Round(_podiIndoor,3);
             }
 
             set

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +15,32 @@ namespace ProbabilityOfignition
     {
         private Chemical currentChemical = null;
         private LevelBase currentlevel;
+        private Dictionary<string, DataRow> dic_Chemical;
+        private string filepath;
+        List<Control> level2Controls;
         public Form1()
         {
             InitializeComponent();
+            level2Controls = new List<Control>()
+            {
+lbl_Pressure,txt_Pressure,lbl_Strength,txt_Strength,lbl_form,radio_Liquid,radio_Vaqor,lbl_AmountReleased,txt_AmountReleased,
+lbl_HoleDiameter,txt_HoleDiameter
+            };
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {        
-         
             LoadChemical();
             LoadLevel();
-            BindCmb_Chemical();
+            if (File.Exists(@"F:\Code\Data\ProbabilityOfignition\Data\材料.xls"))
+            {
+                filepath = @"F:\Code\Data\ProbabilityOfignition\Data\材料.xls";
+                BindCmb_Chemical();
+            }          
         }
         private void LoadChemical()
         {
-
-            currentChemical = ChemicalHelper.Instance.GetByName(cmb_Chemical.Text);
+            currentChemical = ChemicalHelper.Instance.GetByName(cmb_Chemical.Text,dic_Chemical);
             txt_MIE.Text = currentChemical.MIE.ToString();
             txt_AIT.Text = currentChemical.AIT.ToString();
             txt_Temperature.Text =  currentChemical.Temperature.ToString();
@@ -39,102 +50,120 @@ namespace ProbabilityOfignition
         private void LoadLevel()
         {
             if (tab_Level.SelectedIndex==0)
-            {
-                lbl_Pressure.Hide();
-                txt_Pressure.Hide();
+            {               
                 currentlevel = new LevelOne(currentChemical);
             }
             else
-            {
-                lbl_Pressure.Show();
-                txt_Pressure.Show();      
+            {                 
                 currentlevel = new LevelTwo(currentChemical);
             }
-           
+            ShowHide();
             txt_POSI.Text = currentlevel.POSI.ToString();
             txt_PONI.Text = currentlevel.PONI.ToString();
             txt_POII.Text = currentlevel.POII.ToString();
             txt_PODIIndoor.Text = currentlevel.PODIIndoor.ToString();
             txt_PODIOutdoor.Text = currentlevel.PODIOutdoor.ToString();
         }
-        private void txt_MIE_TextChanged(object sender, EventArgs e)
+        private void ShowHide()
         {
-            double d;
-            if (double.TryParse(txt_MIE.Text,out d))
+            foreach (var item in level2Controls)
             {
-                currentChemical.MIE = d;
+                if (tab_Level.SelectedIndex == 0)
+                {
+                    item.Hide();
+                }
+                else
+                {
+                    item.Show();
+                }
+            }          
+        }
+     
+        private void textChanged(object sender, EventArgs e)
+        {
+            var temptxt = sender as TextBox;
+            double d;
+            double back=0; 
+            if (double.TryParse(temptxt.Text, out d))
+            {
+                switch (temptxt.Name)
+                {
+                    case "txt_Pressure":
+                        back = currentChemical.Pressure;
+                        currentChemical.Pressure = d;                    
+                        break;
+
+                    case "txt_Temperature":
+                        back = currentChemical.Temperature;
+                        currentChemical.Temperature = d;
+                        break;
+
+                    case "txt_AIT":
+                        back = currentChemical.AIT;
+                        currentChemical.AIT = d;
+                        break;
+
+                    case "txt_MIE":
+                        back = currentChemical.MIE;
+                        currentChemical.MIE = d;
+                        break;
+
+                   
+                    case "txt_Strength":
+                        back = currentChemical.Strength;
+                        currentChemical.Strength = d;
+                        break;
+
+                    case "txt_AmountReleased":
+                        back = currentChemical.AmountReleased;
+                        currentChemical.AmountReleased = d;
+                        currentChemical.HoleDiameter = 0;
+                        currentChemical.LeakEnum = LeakEnum.AmountReleased;
+                        break;
+
+                    case "txt_HoleDiameter":
+                        back = currentChemical.HoleDiameter;
+                        currentChemical.HoleDiameter = d;
+                        currentChemical.LeakEnum = LeakEnum.HoleDiameter;
+                        currentChemical.AmountReleased = 0;
+                        break;
+                    default:
+                        break;
+                }
+              
             }
             else
             {
                 MessageBox.Show("请输入数字！");
-                txt_MIE.Text = currentChemical.MIE.ToString();
+                txt_Temperature.Text = back.ToString();
             }
             LoadLevel();
-        }
 
-        private void txt_AIT_TextChanged(object sender, EventArgs e)
-        {
-            double d;
-            if (double.TryParse(txt_AIT.Text, out d))
-            {
-                currentChemical.AIT = d;
-            }
-            else
-            {
-                MessageBox.Show("请输入数字！");
-                txt_AIT.Text = currentChemical.AIT.ToString();
-            }
-            LoadLevel();
         }
-
         private void cmb_Chemical_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadChemical();
         }
-
-        private void txt_Temperature_TextChanged(object sender, EventArgs e)
-        {
-            double d;
-            if (double.TryParse(txt_Temperature.Text, out d))
-            {
-                currentChemical.Temperature = d;
-            }
-            else
-            {
-                MessageBox.Show("请输入数字！");
-                txt_Temperature.Text =  currentChemical.Temperature.ToString();
-            }
-            LoadLevel();
-        }
-
         private void tab_Level_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadLevel();
         }
-
-        private void txt_Pressure_TextChanged(object sender, EventArgs e)
-        {
-            double d;
-            if (double.TryParse(txt_Pressure.Text, out d))
-            {
-                currentChemical.Pressure = d;
-            }
-            else
-            {
-                MessageBox.Show("请输入数字！");
-                txt_Pressure.Text = currentChemical.Pressure.ToString();
-            }
-            LoadLevel();
-        }
-
         private void BindCmb_Chemical()
         {
-            var dtList = Excelhelper.GetDtList(@"..\..\Data\材料.xls");
+           
+            if (string.IsNullOrEmpty(filepath))
+            {
+                MessageBox.Show("请先选择材料文件！");
+                return;
+            }
+            btn_file.Hide();
+            var dtList = Excelhelper.GetDtList(filepath);
             if (dtList.Any())
             {
                 var dtData = dtList.FirstOrDefault(dt => dt.TableName == "ChemicalData");
                 if (dtData!=null)
                 {
+                    dic_Chemical = new Dictionary<string, DataRow>(dtData.Rows.Count);
                     var list = new List<string>(dtData.Rows.Count);
                     foreach (DataRow row in dtData.Rows)
                     {
@@ -145,9 +174,9 @@ namespace ProbabilityOfignition
                             var fullname = engName;
                             if (engName!=chinese)
                             {
-                                fullname = $"({chinese}){engName}";
+                                fullname = $"{chinese}-{engName}";
                             }
-                                                    
+                            dic_Chemical[fullname] = row;
                             list.Add(fullname);
                         }
                     }
@@ -156,6 +185,26 @@ namespace ProbabilityOfignition
             }
           
            
+        }
+
+        private void btn_file_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                filepath = openFileDialog1.FileName;
+                btn_file.Hide();
+                BindCmb_Chemical();
+            }
+        }
+        private void radio_Liquid_CheckedChanged(object sender, EventArgs e)
+        {
+            currentChemical.FormEnum = FormEnum.Liquid;
+            LoadLevel();
+        }
+        private void radio_Vaqor_CheckedChanged(object sender, EventArgs e)
+        {
+            currentChemical.FormEnum = FormEnum.Vaqor;
+            LoadLevel();
         }
     }
 }
