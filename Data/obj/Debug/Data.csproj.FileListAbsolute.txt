@@ -15,4 +15,3 @@ D:\Test\DataStructure\Data\bin\Debug\Data.pdb
 D:\Test\DataStructure\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 F:\Code\Data\Data\bin\Debug\Data.exe
 F:\Code\Data\Data\bin\Debug\Data.pdb
-F:\Code\Data\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

@@ -8,59 +8,92 @@ namespace ProbabilityOfignition
 {
     public class LevelOne :LevelBase
     {
-        public override double StaticIgnition
+        private double _posi=0.05;
+        private double _poni ;
+        private double _poii ;
+        private double _podiIndoor ;
+        private double _podiOutdoor;
+        public override double POSI
         {
             get
             {
-                throw new NotImplementedException();
+                return _posi;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _posi = value;
+
             }
         }
 
-        public override double NaturalIgnition
+        public override double PONI
         {
             get
             {
-                throw new NotImplementedException();
+                var temp = Chemical.Temperature / Chemical.AIT;
+                if (temp<0.9)
+                {
+                    _poni = 0;
+                }
+                else if(temp>1.2)
+                {
+                    _poni = 1;
+                }
+                else 
+                {
+                    _poni=  1 - 5000 * Math.Exp(-9.5 * temp);
+                }
+                return _poni;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _poni = value;
             }
         }
 
-        public override double ImmediateIgnition
+        public override double POII
         {
             get
             {
-                throw new NotImplementedException();
+                _poii = 0.05 + (1 - 0.05) * _poni;
+                return _poii;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _poii = value;
             }
         }
 
-        public override double DelayedIgnition
+        public override double PODIOutdoor
         {
             get
             {
-                throw new NotImplementedException();
+                _podiOutdoor = 0.15 - 0.25 * Math.Log(Chemical.MIE);
+                return _podiOutdoor;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _podiOutdoor = value;
             }
         }
+        public override double PODIIndoor
+        {
+            get
+            {
+                _podiIndoor = 1.5 * PODIOutdoor;
+                return _podiIndoor;
+            }
 
-        public LevelOne(Chemical _chemical) : base(_chemical)
+            set
+            {
+                _podiIndoor = value;
+            }
+        }
+        public LevelOne(Chemical chemical) : base(chemical)
         {
         }
         private LevelOne() { }

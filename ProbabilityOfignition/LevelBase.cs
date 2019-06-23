@@ -8,44 +8,49 @@ namespace ProbabilityOfignition
 {
     public abstract class LevelBase
     {
+       
         private Chemical _chemical;
-        private double _temperature;
+      
         public Chemical Chemical
         {
 
             get { return _chemical; }
             set { _chemical = value; }
         }
-        public double Temperature
-        {
-            get { return _temperature; }
-            set { _temperature = value; }
-        }
-        public LevelBase(Chemical chemical, double temperature)
+       
+        public LevelBase(Chemical chemical)
         {
             _chemical = chemical;
-            _temperature = temperature;
+            
         }
         public LevelBase() { }
+
+      
+
         /// <summary>
         /// 静态引燃
         /// </summary>
         /// <returns></returns>
-        public abstract double StaticIgnition { get; set; }
+        public abstract double POSI { get; set; }
         /// <summary>
         /// 自然引燃
         /// </summary>
         /// <returns></returns>
-        public abstract double NaturalIgnition { get; set; }
+        public abstract double PONI { get; set; }
         /// <summary>
         /// 立即引燃
         /// </summary>
         /// <returns></returns>
-        public abstract double ImmediateIgnition { get; set; }
+        public abstract double POII { get; set; }
         /// <summary>
-        /// 延迟引燃
+        /// 延迟引燃--室内
         /// </summary>
         /// <returns></returns>
-        public abstract double DelayedIgnition { get; set; }
+        public abstract double PODIIndoor { get; set; }
+             /// <summary>
+             /// 延迟引燃--室外
+             /// </summary>
+             /// <returns></returns>
+        public abstract double PODIOutdoor { get; set; }
     }
 }

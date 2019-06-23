@@ -63,7 +63,7 @@ namespace LanWeb
             catch (Exception ex)
             {
 
-                //throw;
+                throw ex;
             }
         }
 
