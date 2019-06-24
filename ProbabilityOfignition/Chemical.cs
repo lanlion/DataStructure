@@ -36,13 +36,13 @@ namespace ProbabilityOfignition
                 {
                     if (PhaseEnum == PhaseEnum.Vaqor)
                     {
-                        _mie_v = 1;
+                        _mie_v = MIE;
                     }
                     else
                     {
                         _mie_v = MIE * Math.Pow(10000 / Pressure, 0.25);
                     }
-                   // _mie_v = MIE * Math.Pow(10000 / Pressure, 0.25);
+                
                 }
                 return _mie_v;
             }

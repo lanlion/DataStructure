@@ -129,9 +129,9 @@
             this.lbl_title.Font = new System.Drawing.Font("仿宋", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_title.Location = new System.Drawing.Point(467, 28);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(236, 27);
+            this.lbl_title.Size = new System.Drawing.Size(320, 27);
             this.lbl_title.TabIndex = 0;
-            this.lbl_title.Text = "点火概率计算工具";
+            this.lbl_title.Text = "点火源引燃概率计算软件";
             // 
             // radio_Vaqor
             // 
@@ -363,7 +363,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 10;
-            this.label7.Text = "自然引燃：";
+            this.label7.Text = "自燃引燃：";
             // 
             // label2
             // 
