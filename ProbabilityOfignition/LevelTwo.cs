@@ -19,8 +19,9 @@ namespace ProbabilityOfignition
         {
             get
             {
-                _posi = 0.003 * Math.Pow(Chemical.Pressure, 1 / 3)*Math.Pow(Chemical.MIE_Adj,-0.6);
-                return Math.Round(_posi,3);
+               
+               _posi = 0.003 * Math.Pow(Chemical.Pressure, 1.0 / 3.0) *Math.Pow(Chemical.MIE_Adj,-0.6);
+                return _posi;
             }
 
             set
@@ -47,7 +48,7 @@ namespace ProbabilityOfignition
                 {
                     _poni = 1 - 5000 * Math.Exp(-9.5 * temp);
                 }
-                return Math.Round(_poni,3);
+                return _poni;
               
             }
 
@@ -62,7 +63,7 @@ namespace ProbabilityOfignition
             get
             {
                 _poii = PONI + (1 - PONI) * POSI;
-                return Math.Round(_poii,3);
+                return _poii;
             }
 
             set
@@ -79,7 +80,7 @@ namespace ProbabilityOfignition
             get
             {
                 _podiOutdoor = Chemical.SD * Chemical.MAG * Chemical.MAT * Chemical.MT * Chemical.OutdoorLeaks;
-                return Math.Round(_podiOutdoor,3);
+                return _podiOutdoor;
             }
 
             set
@@ -92,7 +93,7 @@ namespace ProbabilityOfignition
             get
             {
                 _podiIndoor = Chemical.SD * Chemical.MAG * Chemical.MAT * Chemical.MT * Chemical.IndoordoorLeaks;
-                return Math.Round(_podiIndoor,3);
+                return _podiIndoor;
             }
 
             set

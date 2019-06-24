@@ -32,15 +32,20 @@ lbl_HoleDiameter,txt_HoleDiameter
         {        
             LoadChemical();
             LoadLevel();
-            if (File.Exists(@"F:\Code\Data\ProbabilityOfignition\Data\材料.xls"))
+            var f = @"..\..\Data\材料.xls";
+            if (File.Exists(f))
             {
-                filepath = @"F:\Code\Data\ProbabilityOfignition\Data\材料.xls";
+                filepath = f;
                 BindCmb_Chemical();
             }          
         }
         private void LoadChemical()
         {
             currentChemical = ChemicalHelper.Instance.GetByName(cmb_Chemical.Text,dic_Chemical);
+            if (radio_Vaqor.Checked)
+            {
+                currentChemical.PhaseEnum = PhaseEnum.Vaqor;
+            }
             txt_MIE.Text = currentChemical.MIE.ToString();
             txt_AIT.Text = currentChemical.AIT.ToString();
             txt_Temperature.Text =  currentChemical.Temperature.ToString();
@@ -58,11 +63,11 @@ lbl_HoleDiameter,txt_HoleDiameter
                 currentlevel = new LevelTwo(currentChemical);
             }
             ShowHide();
-            txt_POSI.Text = currentlevel.POSI.ToString();
-            txt_PONI.Text = currentlevel.PONI.ToString();
-            txt_POII.Text = currentlevel.POII.ToString();
-            txt_PODIIndoor.Text = currentlevel.PODIIndoor.ToString();
-            txt_PODIOutdoor.Text = currentlevel.PODIOutdoor.ToString();
+            txt_POSI.Text =Math.Round( currentlevel.POSI,4).ToString();
+            txt_PONI.Text = Math.Round(currentlevel.PONI,4).ToString();
+            txt_POII.Text = Math.Round(currentlevel.POII,4).ToString();
+            txt_PODIIndoor.Text = Math.Round(currentlevel.PODIIndoor,4).ToString();
+            txt_PODIOutdoor.Text = Math.Round(currentlevel.PODIOutdoor,4).ToString();
         }
         private void ShowHide()
         {
@@ -146,6 +151,11 @@ lbl_HoleDiameter,txt_HoleDiameter
         }
         private void tab_Level_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txt_POSI.Text = "";
+            txt_PONI.Text = "";
+            txt_POII.Text = "";
+            txt_PODIIndoor.Text="";
+            txt_PODIOutdoor.Text = "";
             LoadLevel();
         }
         private void BindCmb_Chemical()
@@ -198,12 +208,12 @@ lbl_HoleDiameter,txt_HoleDiameter
         }
         private void radio_Liquid_CheckedChanged(object sender, EventArgs e)
         {
-            currentChemical.FormEnum = FormEnum.Liquid;
+            currentChemical.PhaseEnum = PhaseEnum.Liquid;
             LoadLevel();
         }
         private void radio_Vaqor_CheckedChanged(object sender, EventArgs e)
         {
-            currentChemical.FormEnum = FormEnum.Vaqor;
+            currentChemical.PhaseEnum = PhaseEnum.Vaqor;
             LoadLevel();
         }
     }

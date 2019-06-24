@@ -34,7 +34,15 @@ namespace ProbabilityOfignition
             {
                 if (Pressure != 0)
                 {
-                    _mie_v = MIE * Math.Pow(10000 / Pressure, 0.25);
+                    if (PhaseEnum == PhaseEnum.Vaqor)
+                    {
+                        _mie_v = 1;
+                    }
+                    else
+                    {
+                        _mie_v = MIE * Math.Pow(10000 / Pressure, 0.25);
+                    }
+                   // _mie_v = MIE * Math.Pow(10000 / Pressure, 0.25);
                 }
                 return _mie_v;
             }
@@ -75,12 +83,12 @@ namespace ProbabilityOfignition
                 switch (LeakEnum)
                 {
                     case LeakEnum.AmountReleased:
-                        switch (FormEnum)
+                        switch (PhaseEnum)
                         {
-                            case FormEnum.Liquid:
+                            case PhaseEnum.Liquid:
                                 _mag = Math.Pow(AmountReleased / 5000, 0.3);
                                 break;
-                            case FormEnum.Vaqor:
+                            case PhaseEnum.Vaqor:
                                 _mag = Math.Pow(AmountReleased / 1000, 0.5);
                                 break;
                             default:
@@ -88,12 +96,12 @@ namespace ProbabilityOfignition
                         }
                         break;
                     case LeakEnum.HoleDiameter:
-                        switch (FormEnum)
+                        switch (PhaseEnum)
                         {
-                            case FormEnum.Liquid:
+                            case PhaseEnum.Liquid:
                                 _mag = Math.Pow(HoleDiameter, 0.6);
                                 break;
-                            case FormEnum.Vaqor:
+                            case PhaseEnum.Vaqor:
                                 _mag = HoleDiameter;
                                 break;
                             default:
@@ -146,7 +154,7 @@ namespace ProbabilityOfignition
         /// </summary>
         public double Strength;
 
-        public FormEnum FormEnum;
+        public PhaseEnum PhaseEnum;
 
         public LeakEnum LeakEnum;
         /// <summary>
@@ -158,7 +166,7 @@ namespace ProbabilityOfignition
         /// </summary>
         public double HoleDiameter;
     }
-    public enum FormEnum
+    public enum PhaseEnum
     {
         Liquid = 0,//:液体
         Vaqor = 1//:水汽

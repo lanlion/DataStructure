@@ -3,3 +3,8 @@ F:\Code\Data\BaiDuApi\bin\Debug\BaiDuApi.pdb
 F:\Code\Data\BaiDuApi\obj\Debug\BaiDuApi.csprojResolveAssemblyReference.cache
 F:\Code\Data\BaiDuApi\obj\Debug\BaiDuApi.dll
 F:\Code\Data\BaiDuApi\obj\Debug\BaiDuApi.pdb
+D:\Test\DataStructure\BaiDuApi\bin\Debug\BaiDuApi.dll
+D:\Test\DataStructure\BaiDuApi\bin\Debug\BaiDuApi.pdb
+D:\Test\DataStructure\BaiDuApi\obj\Debug\BaiDuApi.csprojResolveAssemblyReference.cache
+D:\Test\DataStructure\BaiDuApi\obj\Debug\BaiDuApi.dll
+D:\Test\DataStructure\BaiDuApi\obj\Debug\BaiDuApi.pdb
