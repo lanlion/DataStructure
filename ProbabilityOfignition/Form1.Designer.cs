@@ -66,11 +66,13 @@
             this.txt_MIE = new System.Windows.Forms.TextBox();
             this.txt_POSI = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.tab_Level.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -82,6 +84,7 @@
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer.Panel1.Controls.Add(this.lbl_title);
             this.splitContainer.Panel1.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
@@ -287,7 +290,7 @@
             this.tab_Level.Location = new System.Drawing.Point(3, 17);
             this.tab_Level.Name = "tab_Level";
             this.tab_Level.SelectedIndex = 0;
-            this.tab_Level.Size = new System.Drawing.Size(1190, 37);
+            this.tab_Level.Size = new System.Drawing.Size(1190, 38);
             this.tab_Level.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tab_Level.TabIndex = 0;
             this.tab_Level.SelectedIndexChanged += new System.EventHandler(this.tab_Level_SelectedIndexChanged);
@@ -297,7 +300,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1182, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1182, 3);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Level1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -307,7 +310,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1182, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1182, 3);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Level2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -317,7 +320,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1182, 2);
+            this.tabPage3.Size = new System.Drawing.Size(1182, 3);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Level3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -476,6 +479,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProbabilityOfignition.Properties.Resources.微信图片_20190625085133;
+            this.pictureBox1.Location = new System.Drawing.Point(420, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -493,6 +506,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.tab_Level.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,6 +550,7 @@
         private System.Windows.Forms.Label lbl_AmountReleased;
         private System.Windows.Forms.TextBox txt_Strength;
         private System.Windows.Forms.Label lbl_Strength;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
