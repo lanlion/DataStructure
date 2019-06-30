@@ -9,3 +9,4 @@ F:\Code\Data\Thread\bin\Debug\ThreadTest.exe
 F:\Code\Data\Thread\bin\Debug\ThreadTest.pdb
 F:\Code\Data\Thread\obj\Debug\ThreadTest.exe
 F:\Code\Data\Thread\obj\Debug\ThreadTest.pdb
+F:\Code\Data\Thread\obj\Debug\ThreadTest.csprojResolveAssemblyReference.cache
