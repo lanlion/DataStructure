@@ -52,8 +52,15 @@ namespace LawTribe
                 if (OneKey != null)
                 {
                     OneKey.Click();
+                    Thread.Sleep(1000);
+                    var al = WebDriver.SwitchTo().Alert();
+                    if (al!=null)
+                    {
+                        al.Accept();
+                    }
+                  
                 }
-                Thread.Sleep(60*1000);
+                Thread.Sleep(3*60*1000);
                
             }
         }
