@@ -51,14 +51,19 @@ namespace LawTribe
                 OneKey = Waiter.UntilFindElement(By.XPath("//a[text()='一键接收']"), WebDriver);
                 if (OneKey != null)
                 {
-                    OneKey.Click();
-                    Thread.Sleep(1000);
-                    var al = WebDriver.SwitchTo().Alert();
-                    if (al!=null)
+                    var div = WebDriver.FindElements(By.ClassName("braleft")).Where(w=>w.Text.Contains("律师入库")).FirstOrDefault().FindElements(By.TagName("tr")).Count;
+                    if (div>2)
                     {
-                        al.Accept();
+                        OneKey.Click();
+                        Thread.Sleep(1000);
+                        var al = WebDriver.SwitchTo().Alert();
+                        if (al != null)
+                        {
+                            al.Accept();
+                        }
+
                     }
-                  
+
                 }
                 Thread.Sleep(3*60*1000);
                
@@ -86,6 +91,12 @@ namespace LawTribe
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            WebDriver.Dispose();
+            getLawyer.Dispose();
         }
     }
 }
