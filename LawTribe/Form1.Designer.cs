@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Catch = new System.Windows.Forms.Button();
+            this.btn_Crm = new System.Windows.Forms.Button();
+            this.btn_SendMsg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_Catch
             // 
-            this.button1.Location = new System.Drawing.Point(260, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "捉律师";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Catch.Location = new System.Drawing.Point(260, 123);
+            this.btn_Catch.Name = "btn_Catch";
+            this.btn_Catch.Size = new System.Drawing.Size(102, 61);
+            this.btn_Catch.TabIndex = 1;
+            this.btn_Catch.Text = "捉律师";
+            this.btn_Catch.UseVisualStyleBackColor = true;
+            this.btn_Catch.Click += new System.EventHandler(this.btn_Catch_Click);
             // 
-            // button2
+            // btn_Crm
             // 
-            this.button2.Location = new System.Drawing.Point(106, 123);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 61);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "抢律师";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Crm.Location = new System.Drawing.Point(106, 123);
+            this.btn_Crm.Name = "btn_Crm";
+            this.btn_Crm.Size = new System.Drawing.Size(102, 61);
+            this.btn_Crm.TabIndex = 0;
+            this.btn_Crm.Text = "抢律师";
+            this.btn_Crm.UseVisualStyleBackColor = true;
+            this.btn_Crm.Click += new System.EventHandler(this.btn_Crm_Click);
             // 
-            // button3
+            // btn_SendMsg
             // 
-            this.button3.Location = new System.Drawing.Point(418, 123);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 61);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "骚扰律师";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_SendMsg.Location = new System.Drawing.Point(418, 123);
+            this.btn_SendMsg.Name = "btn_SendMsg";
+            this.btn_SendMsg.Size = new System.Drawing.Size(102, 61);
+            this.btn_SendMsg.TabIndex = 2;
+            this.btn_SendMsg.Text = "骚扰律师";
+            this.btn_SendMsg.UseVisualStyleBackColor = true;
+            this.btn_SendMsg.Click += new System.EventHandler(this.btn_SendMsg_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 361);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_SendMsg);
+            this.Controls.Add(this.btn_Crm);
+            this.Controls.Add(this.btn_Catch);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "律师助手";
@@ -81,9 +81,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Catch;
+        private System.Windows.Forms.Button btn_Crm;
+        private System.Windows.Forms.Button btn_SendMsg;
     }
 }
 

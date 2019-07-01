@@ -20,7 +20,12 @@ namespace LawTribe
             InitializeComponent();
         }
 
-        private void btn_StartGet_Click(object sender, EventArgs e)
+        private void btn_HomePage_Click(object sender, EventArgs e)
+        {
+            Go();
+        }
+
+        private void Go()
         {
             if (!string.IsNullOrEmpty(txt_Url.Text))
             {
@@ -32,5 +37,6 @@ namespace LawTribe
                 return;
             }
         }
+        
     }
 }

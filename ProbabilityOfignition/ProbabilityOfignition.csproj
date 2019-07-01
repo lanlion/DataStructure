@@ -65,9 +65,6 @@
     <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
     </Reference>
@@ -88,7 +85,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
