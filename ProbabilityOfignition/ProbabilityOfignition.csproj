@@ -65,6 +65,10 @@
     <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Data\IrisSkin4.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
     </Reference>
@@ -115,7 +119,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Data\材料.xls" />
+    <None Include="Data\MP10.ssk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="材料.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Data\资料.docx" />
     <None Include="ProbabilityOfignition_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -145,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bitbug_favicon.ico" />
+    <Content Include="Data\IrisSkin4.dll" />
     <Content Include="Data\NPOI.dll" />
     <Content Include="Data\NPOI.OOXML.dll" />
     <Content Include="Data\NPOI.OpenXml4Net.dll" />
