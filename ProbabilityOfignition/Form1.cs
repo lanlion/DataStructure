@@ -26,18 +26,23 @@ namespace ProbabilityOfignition
 lbl_Pressure,txt_Pressure,lbl_Strength,txt_Strength,lbl_form,radio_Liquid,radio_Vaqor,lbl_AmountReleased,txt_AmountReleased,
 lbl_HoleDiameter,txt_HoleDiameter
             };
+           
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {        
+        {
+          
             LoadChemical();
             LoadLevel();
-            var f = @"..\..\Data\材料.xls";
+         
+            var f = $"{Application.StartupPath}/材料.xls";
             if (File.Exists(f))
             {
                 filepath = f;
                 BindCmb_Chemical();
-            }          
+            }
+            skinEngine1.SkinFile = $"{Application.StartupPath}/MP10.ssk";
         }
         private void LoadChemical()
         {
