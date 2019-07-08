@@ -47,7 +47,7 @@ namespace LawTribe
             IWebElement OneKey;
             while (true)
             {
-                if (DateTime.Now.Hour > 9 && DateTime.Now.Hour < 19)
+                if (DateTime.Now.Hour > 8 && DateTime.Now.Hour < 19)
                 {
 
                     WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/lawstore");
