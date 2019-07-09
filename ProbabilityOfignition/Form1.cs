@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProbabilityOfignition
+namespace Common
 {
     public partial class Form1 : Form
     {
@@ -42,7 +42,7 @@ lbl_HoleDiameter,txt_HoleDiameter
                 filepath = f;
                 BindCmb_Chemical();
             }
-            skinEngine1.SkinFile = $"{Application.StartupPath}/MP10.ssk";
+           // skinEngine1.SkinFile = $"{Application.StartupPath}/MP10.ssk";
         }
         private void LoadChemical()
         {

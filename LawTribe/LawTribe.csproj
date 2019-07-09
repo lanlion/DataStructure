@@ -122,9 +122,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutoUI\AutoUI.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
       <Project>{7c7b6651-5480-49ca-abec-f9e54c2de21f}</Project>
-      <Name>AutoUI</Name>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

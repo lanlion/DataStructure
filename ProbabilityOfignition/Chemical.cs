@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProbabilityOfignition
+namespace Common
 {
     public class Chemical
     {
@@ -198,7 +198,7 @@ namespace ProbabilityOfignition
 
         public Chemical GetByName(string name, Dictionary<string, DataRow> dic)
         {
-            Chemical c = new ProbabilityOfignition.Chemical();
+            Chemical c = new Common.Chemical();
             double d;
             if (dic != null && dic.ContainsKey(name))
             {

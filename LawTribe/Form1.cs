@@ -1,4 +1,4 @@
-﻿using AutoUI;
+﻿using Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;

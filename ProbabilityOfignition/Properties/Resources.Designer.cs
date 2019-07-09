@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProbabilityOfignition.Properties {
+namespace Common.Properties {
     using System;
     
     
