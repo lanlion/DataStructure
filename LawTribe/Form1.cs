@@ -47,28 +47,27 @@ namespace LawTribe
             IWebElement OneKey;
             while (true)
             {
-                if (DateTime.Now.Hour > 8 && DateTime.Now.Hour < 19)
+
+
+                WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/lawstore");
+                OneKey = Waiter.UntilFindElement(By.XPath("//a[text()='一键接收']"), WebDriver);
+                if (OneKey != null)
                 {
-
-                    WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/lawstore");
-                    OneKey = Waiter.UntilFindElement(By.XPath("//a[text()='一键接收']"), WebDriver);
-                    if (OneKey != null)
+                    var div = WebDriver.FindElements(By.ClassName("braleft")).Where(w => w.Text.Contains("律师入库")).FirstOrDefault().FindElements(By.TagName("tr")).Count;
+                    if (div > 2)
                     {
-                        var div = WebDriver.FindElements(By.ClassName("braleft")).Where(w => w.Text.Contains("律师入库")).FirstOrDefault().FindElements(By.TagName("tr")).Count;
-                        if (div > 2)
+                        OneKey.Click();
+                        Thread.Sleep(1000);
+                        var al = WebDriver.SwitchTo().Alert();
+                        if (al != null)
                         {
-                            OneKey.Click();
-                            Thread.Sleep(1000);
-                            var al = WebDriver.SwitchTo().Alert();
-                            if (al != null)
-                            {
-                                al.Accept();
-                            }
-
+                            al.Accept();
                         }
 
                     }
+
                 }
+
                 Thread.Sleep(4 * 60 * 1000);
 
             }

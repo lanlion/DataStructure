@@ -172,7 +172,7 @@ lbl_HoleDiameter,txt_HoleDiameter
                 return;
             }
             btn_file.Hide();
-            var dtList = Excelhelper.GetDtList(filepath);
+            var dtList = ExcelHelper.GetDtList(filepath);
             if (dtList.Any())
             {
                 var dtData = dtList.FirstOrDefault(dt => dt.TableName == "ChemicalData");

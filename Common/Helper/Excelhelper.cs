@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public static class Excelhelper
+    public static class ExcelHelper
     {
         private static byte[] GenerateImportTemplate(List<DataTable> tableList)
         {
@@ -59,10 +59,10 @@ namespace Common
             }
         }
 
-        public static void savefile(List<DataTable> tableList, string filename)
+        public static void savefile(List<DataTable> tableList, string filename,string filepath)
         {
 
-            filename = $"D:/{filename }.xls";
+            filename = $"{filepath}/{filename }.xls";
             var bytes = GenerateImportTemplate(tableList);
             var s = File.Create(filename);
             foreach (byte item in bytes)

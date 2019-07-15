@@ -74,7 +74,8 @@
   <ItemGroup>
     <Compile Include="Baidu\AccessToken.cs" />
     <Compile Include="Baidu\AdvancedGeneral.cs" />
-    <Compile Include="Helper\Excelhelper.cs" />
+    <Compile Include="Helper\ExcelHelper.cs" />
+    <Compile Include="Helper\SendMsgHelper.cs" />
     <Compile Include="Helper\WebDriverHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
