@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Catch = new System.Windows.Forms.Button();
             this.btn_Crm = new System.Windows.Forms.Button();
+            this.btn_Catch = new System.Windows.Forms.Button();
             this.btn_SendMsg = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btn_Catch
-            // 
-            this.btn_Catch.Location = new System.Drawing.Point(260, 123);
-            this.btn_Catch.Name = "btn_Catch";
-            this.btn_Catch.Size = new System.Drawing.Size(102, 61);
-            this.btn_Catch.TabIndex = 1;
-            this.btn_Catch.Text = "捉律师";
-            this.btn_Catch.UseVisualStyleBackColor = true;
-            this.btn_Catch.Click += new System.EventHandler(this.btn_Catch_Click);
             // 
             // btn_Crm
             // 
@@ -49,9 +39,19 @@
             this.btn_Crm.Name = "btn_Crm";
             this.btn_Crm.Size = new System.Drawing.Size(102, 61);
             this.btn_Crm.TabIndex = 0;
-            this.btn_Crm.Text = "抢律师";
+            this.btn_Crm.Text = "自动一键接收";
             this.btn_Crm.UseVisualStyleBackColor = true;
             this.btn_Crm.Click += new System.EventHandler(this.btn_Crm_Click);
+            // 
+            // btn_Catch
+            // 
+            this.btn_Catch.Location = new System.Drawing.Point(260, 123);
+            this.btn_Catch.Name = "btn_Catch";
+            this.btn_Catch.Size = new System.Drawing.Size(102, 61);
+            this.btn_Catch.TabIndex = 1;
+            this.btn_Catch.Text = "页面抓取";
+            this.btn_Catch.UseVisualStyleBackColor = true;
+            this.btn_Catch.Click += new System.EventHandler(this.btn_Catch_Click);
             // 
             // btn_SendMsg
             // 
@@ -59,7 +59,7 @@
             this.btn_SendMsg.Name = "btn_SendMsg";
             this.btn_SendMsg.Size = new System.Drawing.Size(102, 61);
             this.btn_SendMsg.TabIndex = 2;
-            this.btn_SendMsg.Text = "骚扰律师";
+            this.btn_SendMsg.Text = "短信群发";
             this.btn_SendMsg.UseVisualStyleBackColor = true;
             this.btn_SendMsg.Click += new System.EventHandler(this.btn_SendMsg_Click);
             // 
@@ -81,9 +81,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_Catch;
         private System.Windows.Forms.Button btn_Crm;
+        private System.Windows.Forms.Button btn_Catch;
         private System.Windows.Forms.Button btn_SendMsg;
     }
 }

@@ -31,46 +31,62 @@ namespace LawTribe
 
         private void btn_Crm_Click(object sender, EventArgs e)
         {
-            if (WebDriver == null)
-            {
-                WebDriver = WebDriverHelper.Instance.ChromeWebDriver;
-                Waiter = WebDriverHelper.Instance.Waiter;
-            }
-
-            WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/invitation/shouye?menu=crm");
-            var loginelement = Waiter.UntilFindElement(By.XPath("//h3[text()='企业微信登录']"), WebDriver);
-            loginelement.Click();
-            Waiter.UntilFindElement(By.XPath("//a[text()='CRM管理']"), WebDriver, 300).Click();
-            Thread.Sleep(1000);
-            WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/invitation/shouye?menu=crm");
-            Thread.Sleep(1000);
-            IWebElement OneKey;
-            while (true)
+            try
             {
 
 
-                WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/lawstore");
-                OneKey = Waiter.UntilFindElement(By.XPath("//a[text()='一键接收']"), WebDriver);
-                if (OneKey != null)
+                if (WebDriver == null)
                 {
-                    var div = WebDriver.FindElements(By.ClassName("braleft")).Where(w => w.Text.Contains("律师入库")).FirstOrDefault().FindElements(By.TagName("tr")).Count;
-                    if (div > 2)
+                    WebDriver = WebDriverHelper.Instance.ChromeWebDriver;
+                    Waiter = WebDriverHelper.Instance.Waiter;
+                }
+
+                WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/invitation/shouye?menu=crm");
+                var loginelement = Waiter.UntilFindElement(By.XPath("//h3[text()='企业微信登录']"), WebDriver);
+                loginelement.Click();
+                Waiter.UntilFindElement(By.XPath("//a[text()='CRM管理']"), WebDriver, 300).Click();
+                Thread.Sleep(1000);
+                WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/invitation/shouye?menu=crm");
+                Thread.Sleep(1000);
+                IWebElement OneKey;
+                while (true)
+                {
+
+                    if (WebDriver == null)
                     {
-                        OneKey.Click();
-                        Thread.Sleep(1000);
-                        var al = WebDriver.SwitchTo().Alert();
-                        if (al != null)
+                        break;
+                    }
+                    WebDriver.Navigate().GoToUrl("http://boss.boolaw.com/lawstore");
+                    OneKey = Waiter.UntilFindElement(By.XPath("//a[text()='一键接收']"), WebDriver);
+                    if (OneKey != null)
+                    {
+                        var div = WebDriver.FindElements(By.ClassName("braleft")).Where(w => w.Text.Contains("律师入库")).FirstOrDefault().FindElements(By.TagName("tr")).Count;
+                        if (div > 2)
                         {
-                            al.Accept();
+                            OneKey.Click();
+                            Thread.Sleep(1000);
+                            var al = WebDriver.SwitchTo().Alert();
+                            if (al != null)
+                            {
+                                al.Accept();
+                            }
+
                         }
 
                     }
 
+                    Thread.Sleep(4 * 60 * 1000);
+
                 }
 
-                Thread.Sleep(4 * 60 * 1000);
+            }
+            catch (Exception)
+            {
+
 
             }
+
+
         }
 
         private void showGetLawyer()
@@ -101,7 +117,7 @@ namespace LawTribe
             if (WebDriver != null)
             {
                 WebDriver.Dispose();
-                getLawyer.Dispose();
+               // getLawyer.Dispose();
             }
 
         }

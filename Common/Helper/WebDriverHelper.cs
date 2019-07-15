@@ -112,13 +112,23 @@ namespace Common
             DateTime startTime = DateTime.Now;
             while (true)
             {
-                var elements = searchContext.FindElements(by);
-                if (elements.Count > 0)
-                    return elements.FirstOrDefault();
-                if ((DateTime.Now - startTime).TotalSeconds > maxSecond)
-                  
-                Thread.Sleep(500);
+                try
+                {
+                    var elements = searchContext.FindElements(by);
+                    if (elements.Count > 0)
+                        return elements.FirstOrDefault();
+                    if ((DateTime.Now - startTime).TotalSeconds > maxSecond)
+
+                        Thread.Sleep(500);
+                }
+                catch (Exception)
+                {
+                    break;
+                   
+                }
+              
             }
+            return null;
         }
     }
 }
